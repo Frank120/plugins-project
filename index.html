@@ -9,10 +9,17 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="sidebars">
+    <!-- siderbar module -->
+    <!-- <div class="sidebars">
        <div class="sidebar right" data-side='right'>come in right</div>
     </div>
-    <div href="#" class="btn btn-primary" data-action="toggle" data-side="right"><span>Toggle Right</span></div>
+    <div href="#" class="btn btn-primary" data-action="toggle" data-side="right"><span>Toggle Right</span></div> -->
+
+    <!-- image preview module -->
+    <div class="preview-box">
+        <input type="file" name="file" onchange="showPreview(this)" />
+        <img src="" alt="" id="protact" width="70" height="75">
+    </div>
 </body>
 <script src="./lib/js/jquery.min.js"></script>
 <script src="./lib/js/unslider.js"></script>
@@ -31,15 +38,25 @@
     // });
 
     // sliderbar module 
-    $(".sidebar.right").sidebar({side: "right"});
+    // $(".sidebar.right").sidebar({side: "right"});
 
-    $('.btn[data-action]').on('click', function () {
-        var _this = $(this);
-        var action = _this.attr('data-action');
-        var side  = _this.attr('data-side');
-        $('.sidebar.' + side).trigger('sidebar:' + action);
-        return false;
-    });
+    // $('.btn[data-action]').on('click', function () {
+    //     var _this = $(this);
+    //     var action = _this.attr('data-action');
+    //     var side  = _this.attr('data-side');
+    //     $('.sidebar.' + side).trigger('sidebar:' + action);
+    //     return false;
+    // });
     
+    function showPreview(sourse) {
+        var file = sourse.files[0];
+        if (window.FileReader) {
+            var fr = new FileReader();
+            fr.onloadend = function (e) {
+                document.getElementById("protact").src = e.target.result;
+            };
+            fr.readAsDataURL(file);
+        }
+    };
 </script>
 </html>
