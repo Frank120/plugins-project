@@ -9,16 +9,22 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-   <section class="demo">
-      <!-- <div id="test">
-          {% if test > 1 %}
-            {{ test }}
-          {% endif %}
-      </div> -->
+   <section class="result">
+      
    </section>
+
+   <script type="template" id="template">
+        <h2>
+            <a href="{{href}}">
+                {{title}}
+            </a>
+            <img src="{{imgSrc}}" alt="{{title}}">
+        </h2>
+    </script>
 </body>
 <script src="./lib/js/jquery.min.js"></script>
 <script src="./lib/js/unslider.js"></script>
 <script src="./lib/plugins/handle.js"></script>
 <script src="./lib/test.js"></script>
+
 </html>
